@@ -27,5 +27,25 @@ $(document).ready(function(){
         hideOverflow: true
     })
 
+    //lastErrorDate
+    $('[data-lastIncidentDate]').each(function(){
+        var $incidentDate = $(this).attr('data-lastIncidentDate')
+        $incidentDate = dayjs($incidentDate)
+        var today = dayjs()
+        var diff = today.diff($incidentDate, 'day')
+        console.log(diff) 
 
+        var textClass
+
+        if (diff < 5){
+            textClass = 'text-danger'
+        } else if (diff < 30){
+            textClass = 'text-warning'
+        } else {
+            textClass = 'text-success'
+        }
+
+        $(this).text(diff + " days since last incident").addClass(textClass)
+
+    })
 })

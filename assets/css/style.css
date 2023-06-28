@@ -44,6 +44,10 @@ body {
   border-color: var(--horizon) !important;
 }
 
+.text-danger {
+  color: var(--thulianPink) !important;
+}
+
 /* fullpage sidebar thing */
 
 #fp-nav ul li a span {
