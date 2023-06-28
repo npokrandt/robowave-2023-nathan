@@ -1,4 +1,5 @@
 $(document).ready(function(){
+    //fullpage
     $('#fullpage').fullpage({
         licenseKey: 'gplv3-license',
         navigation: true,
@@ -6,6 +7,7 @@ $(document).ready(function(){
         //options here
     })
 
+    //typewriter
     var typewriterElements = document.querySelectorAll('.typewriter-effect')
     //console.log(typewriterElements)
     for (var i = 0; i < typewriterElements.length;i++){
@@ -19,4 +21,11 @@ $(document).ready(function(){
         .start() 
 
     }
+
+    //powerglitch
+    PowerGlitch.glitch(".glitch", {
+        hideOverflow: true
+    })
+
+
 })
