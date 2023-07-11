@@ -1,4 +1,7 @@
 $(document).ready(function(){
+
+    var signupForm = document.getElementById("signup-form")
+
     //fullpage
     $('#fullpage').fullpage({
         licenseKey: 'gplv3-license',
@@ -46,6 +49,41 @@ $(document).ready(function(){
         }
 
         $(this).text(diff + " days since last incident").addClass(textClass)
+
+        signupForm.addEventListener("submit", function (event){
+            event.preventDefault()
+            var emailInput = document.getElementById("email")
+            //console.log("submit")
+            var email = emailInput.value.trim()
+            console.log(email)
+
+            fetch('https://jsonplaceholder.typicode.com/users', {
+                method: 'POST',
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    email: email
+                })
+            })
+            .then(function(response){
+                
+                if (response.ok && response.status === 201){
+                    //something got created
+                    window.location.assign('./signup-thankyou.html?email=' + email)
+                } else {
+                    alert('Error creating user')
+                }
+            }).catch(function(error){
+                alert('Error creating user')
+                console.log(error)
+            })
+            // .then(function(json){
+            //     console.log(json)
+            // })                
+        })
+
+        
 
         //listen for submit event on the signup form
             //prevent the default action
