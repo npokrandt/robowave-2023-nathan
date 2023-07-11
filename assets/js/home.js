@@ -21,7 +21,7 @@ $(document).ready(function(){
         .start() 
 
     }
-
+ 
     //powerglitch
     PowerGlitch.glitch(".glitch", {
         hideOverflow: true
@@ -46,6 +46,13 @@ $(document).ready(function(){
         }
 
         $(this).text(diff + " days since last incident").addClass(textClass)
+
+        //listen for submit event on the signup form
+            //prevent the default action
+            //grab the value of the email input
+                //create user with jsonplaceholder
+                    //if successful
+                        //redirect to the thankyou page
 
     })
 })
