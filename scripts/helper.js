@@ -1,5 +1,9 @@
+const buildFeatures = features => features.map(string => `<li>${string}</li>`).join('')
+
 export const getRobotPageHTML = (answers) => {
     // console.log(answers)
+
+    const {RobotName, RobotPrice, RobotCondition, RobotWeight, RobotViolationsNum, RobotFeatures} = answers
     return `
     
     <!DOCTYPE html>
@@ -8,7 +12,7 @@ export const getRobotPageHTML = (answers) => {
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="description" content="A ficticious robot company website for a Bootstrap and jQuery code-along in class" />
-      <title>${answers.RobotName}</title>
+      <title>${RobotName}</title>
       <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico"/>
       <!-- google font -->
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,15 +32,15 @@ export const getRobotPageHTML = (answers) => {
             <img src="https://placehold.co/400x400" alt="TITLE" />
           </div>
           <div class="col-md-6">
-            <h1>${answers.RobotName}</h1>
+            <h1>${RobotName}</h1>
             <ul>
-              <li><strong>Price:</strong> ${answers.RobotPrice}</li>
-              <li><strong>Condition:</strong> ${answers.RobotCondition}</li>
-              <li><strong>Weight:</strong> ${answers.RobotWeight}</li>
-              <li><strong>Num Code Violations:</strong> ${answers.RobotViolationsNum}</li>
+              <li><strong>Price:</strong> ${RobotPrice}</li>
+              <li><strong>Condition:</strong> ${RobotCondition}</li>
+              <li><strong>Weight:</strong> ${RobotWeight}</li>
+              <li><strong>Num Code Violations:</strong> ${RobotViolationsNum}</li>
             </ul>
             <h2>Features</h2>
-            <ul></ul>
+            <ul>${buildFeatures(RobotFeatures)}</ul>
           </div>
         </div>
       </main>
