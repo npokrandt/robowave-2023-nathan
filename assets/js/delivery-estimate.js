@@ -22,14 +22,17 @@ function getDistanceFromFactory(position){
     var userLat = position.coords.latitude
     var userLon = position.coords.longitude
     
-    fetch('https://api.distancematrix.ai/maps/api/distancematrix/json?origins=' +factoryCoordinates.lat + ',' + factoryCoordinates.lon + '&destinations=' + userLat + ','+ userLon +'&key=dJzOtS3hQyYkUf7qXVAPqP7OumDwI&units=imperial').then(function(response){
-        //console.log(response)
+    // // dJzOtS3hQyYkUf7qXVAPqP7OumDwI
+    // FfjlQNSycwguu8hTigfcqloxlIRYU
+    fetch('https://api.distancematrix.ai/maps/api/distancematrix/json?origins=' +factoryCoordinates.lat + ',' + factoryCoordinates.lon + '&destinations=' + userLat + ','+ userLon +'&key=FfjlQNSycwguu8hTigfcqloxlIRYU&units=imperial').then(function(response){
+        console.log(response)
         return response.json()
     }).then(function(data){
-        var distance = parseFloat(data.rows[0].elements[0].distance.text.split(' ')[0])
-        var total = calculateShipping(distance)
-        console.log(total)
-        displayTotals(total)
+        console.log(data)
+        //var distance = parseFloat(data.rows[0].elements[0].distance.text.split(' ')[0])
+        //var total = calculateShipping(distance)
+        //console.log(total)
+        //displayTotals(total)
 
         
     }).catch(function(error){
