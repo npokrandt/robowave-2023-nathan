@@ -45,7 +45,7 @@ inquirer.prompt([
         type: 'input',
         name: 'RobotDescription',
         message: 'What is the robot\'s description?',
-        default: 'this is my description'
+        default: 'This robot is very dependable'
     },
     {
         type: 'list',
