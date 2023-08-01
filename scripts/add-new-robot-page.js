@@ -32,7 +32,8 @@ inquirer.prompt([
         type: 'checkbox',
         name: 'RobotFeatures',
         message: 'Which features does the robot have?',
-        choices: ['can fly', 'can talk', 'can clean']
+        choices: ['can fly', 'can talk', 'can clean'],
+        default: 'can talk'
     },
     {
         type: 'number',
@@ -45,8 +46,17 @@ inquirer.prompt([
         name: 'RobotDescription',
         message: 'What is the robot\'s description?',
         default: 'this is my description'
-    }
-    //image
+    },
+    {
+        type: 'list',
+        name: 'RobotImage',
+        message: 'What image would you like to use for your robot?',
+        choices: () => {
+            const files = fs.readdirSync('./assets/images/thumbs')
+
+            return files
+        }
+    },
 ]).then(answers => {
     const html = getRobotPageHTML(answers)
     console.log(html)
